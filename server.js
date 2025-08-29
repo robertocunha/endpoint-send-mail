@@ -1,9 +1,13 @@
 import express from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const app = express();
 app.use(express.json());
 
 const PORT = 3001;
-const HEADER_SECRET = '767670Fo!';
+const HEADER_SECRET = process.env.HEADER_SECRET;
 
 app.post('/teleconsulta', (req, res) => {
     const payload = req.body;
